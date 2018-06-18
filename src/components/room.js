@@ -5,8 +5,8 @@ class Room extends Component {
 
   daysGenerator(day) {
     return (
-      <li day={this.props.date.addDays(day)} key={this.props.date.addDays(day)}>
-        <Day date={this.props.date.addDays(day)} roomName={this.props.roomName} />
+      <li key={this.props.date.addDays(day)}>
+        <Day key={this.props.date.addDays(day)} date={this.props.date.addDays(day)} roomName={this.props.roomName} />
       </li>
     )
   }

@@ -11,8 +11,8 @@ class Day extends Component {
     }
   }
 
+
   generateId(room, time) {
-    console.log(room);
     const timeStamp = new Date(this.state.date.getFullYear(), this.state.date.getMonth(), this.state.date.getDate(), time).getTime();
     const id = room.toLocaleLowerCase() + '_' + timeStamp;
     return id;

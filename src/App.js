@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import './components/room'
 import Rooms from "./components/rooms";
-import Navigation from "./components/navigation"
-
+import Navigation from "./components/navigation";
+import $ from 'jquery';
 
 class App extends Component {
   constructor(props) {
@@ -32,18 +32,43 @@ class App extends Component {
 
   }
 
+  componentDidUpdate() {
+    this.restartEventListener();
+    console.log('componentDidUpdate');
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount');
+
+    const nodes = $('.time');
+    $(nodes).click( function () {
+      console.log($(this).attr('id'));
+      console.log(this);
+    })
+  }
+
+  restartEventListener() {
+    const nodes = $('.time');
+
+    $(nodes).off('click');
+    $(nodes).click( function () {
+      console.log($(this).attr('id'));
+      console.log(this);
+    });
+  }
+
   nextWeek() {
     console.log('next');
     this.setState({
       date: this.state.date.addDays(7)
-    })
+    });
   }
 
   prevWeek() {
     console.log('prev');
     this.setState({
       date: this.state.date.deductDays(7)
-    })
+    });
   }
 
   render() {
