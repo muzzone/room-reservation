@@ -22,7 +22,7 @@ class Day extends Component {
   render() {
     const items = [];
     for (let i = 9; i < 19; i++) {
-      items.push(<Time time={i +':00'} timeId={this.generateId(this.props.roomName, i)}/>);
+      items.push(<Time time={i +':00'} key={this.generateId(this.props.roomName, i)} timeId={this.generateId(this.props.roomName, i)}/>);
     }
     return (
       <ul className="day">

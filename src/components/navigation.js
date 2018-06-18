@@ -6,6 +6,7 @@ class Navigation extends Component {
       <div className="navContainer">
         <hr/>
         navigation component
+        {this.props.children}
         <hr/>
       </div>
     )

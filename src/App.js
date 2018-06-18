@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import './components/room'
 import Rooms from "./components/rooms";
@@ -16,13 +15,37 @@ class App extends Component {
       timeStamp: timeStamp
     };
 
+    this.nextWeek = this.nextWeek.bind(this);
+    this.prevWeek = this.prevWeek.bind(this);
+
     Date.prototype.addDays = function(days) {
       const dat = new Date(this.valueOf());
       dat.setDate(dat.getDate() + days);
       return dat;
     };
 
+    Date.prototype.deductDays = function(days) {
+      const dat = new Date(this.valueOf());
+      dat.setDate(dat.getDate() - days);
+      return dat;
+    };
+
   }
+
+  nextWeek() {
+    console.log('next');
+    this.setState({
+      date: this.state.date.addDays(7)
+    })
+  }
+
+  prevWeek() {
+    console.log('prev');
+    this.setState({
+      date: this.state.date.deductDays(7)
+    })
+  }
+
   render() {
     console.log(this.state.timeStamp);
     console.log(Date.now());
@@ -30,7 +53,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
         </header>
-        <Navigation/>
+        <Navigation>
+          <button onClick={this.nextWeek}>next</button>
+          <button onClick={this.prevWeek}>prev</button>
+        </Navigation>
         <Rooms date={this.state.date}/>
       </div>
     );
