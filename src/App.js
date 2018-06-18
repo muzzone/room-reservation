@@ -5,6 +5,7 @@ import './components/room'
 import Rooms from "./components/rooms";
 import Navigation from "./components/navigation"
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +15,13 @@ class App extends Component {
       date: date,
       timeStamp: timeStamp
     };
+
+    Date.prototype.addDays = function(days) {
+      const dat = new Date(this.valueOf());
+      dat.setDate(dat.getDate() + days);
+      return dat;
+    };
+
   }
   render() {
     console.log(this.state.timeStamp);
