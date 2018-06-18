@@ -12,19 +12,19 @@ class Room extends Component {
         </div>
         <ul className="days">
           <li className="day">
-            <Day/>
+            <Day date={this.props.date} roomName={this.props.roomName}/>
           </li>
           <li className="day">
-            <Day/>
+            <Day date={this.props.date} roomName={this.props.roomName} />
           </li>
           <li className="day">
-            <Day/>
+            <Day date={this.props.date} roomName={this.props.roomName} />
           </li>
           <li className="day">
-            <Day/>
+            <Day date={this.props.date} roomName={this.props.roomName} />
           </li>
           <li className="day">
-            <Day/>
+            <Day date={this.props.date} roomName={this.props.roomName} />
           </li>
         </ul>
       </div>
