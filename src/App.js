@@ -64,6 +64,9 @@ class App extends Component {
     console.log(reservedSlots);
 
     $(nodes).click( function () {
+      if ($(this).hasClass('reserved')) {
+        return
+      }
       const id = $(this).attr('id');
       reservedSlots.push(id);
       console.log(reservedSlots);
@@ -74,9 +77,10 @@ class App extends Component {
   }
 
   highlightReservedSlots() {
-     let elements = '';
+    let elements = '';
     const reserved = localStorage['reserved'] || "{}";
     const reservedSlots = JSON.parse(reserved);
+
      $.each(reservedSlots, function (index, item) {
        elements = elements + '#' + item + ', ';
      });
@@ -106,6 +110,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          <h1>Rooms reservation</h1>
         </header>
         <Navigation date={this.state.date}>
           <button onClick={this.prevWeek}>prev</button>

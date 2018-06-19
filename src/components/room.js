@@ -24,9 +24,8 @@ class Room extends Component {
     return (
       <div className={'room ' + this.props.roomName.toLocaleLowerCase() + 'Room'}>
         <div className="roomInfo">
-          {this.props.roomName} room
-          <br/>
-          Room info
+          <div>{this.props.roomName} room</div>
+          <div>Up to {this.props.maxPeople} people</div>
         </div>
         <ul className="days">
           {days.map((day) => day)}

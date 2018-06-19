@@ -29,30 +29,91 @@ header {
 
 .days {
   margin: 0;
+  padding: 0;
 }
 
 .day {
   flex-wrap: wrap;
   max-width: 170px;
+  padding: 0;
 }
 
 .time{
-  margin: 1px 10px;
+  padding: 1px 10px;
   cursor: pointer;
+  width: 40px;
 }
 
 .room {
   margin: 20px;
 }
 
+.rooms, .navContainer{
+  width: 900px;
+}
+
 .reserved {
-  background: red;
+  background: rgba(224, 224, 224, 0.48);
 }
 
 .dayHeader {
+  padding-left: 10px;
   width: 100%;
 }
 
 .redRoom .dayHeader, .blueRoom .dayHeader, .purpleRoom .dayHeader{
   display: none;
+}
+
+.roomInfo{
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.roomColumnHeader{
+  width: 130px;
+  padding-left: 20px;
+}
+
+.navContainer {
+  margin: 20px 0;
+}
+.navContainer > div {
+  display: inline-block;
+}
+
+.controlBtns {
+  width: 750px;
+  text-align: center;
+  position: relative;
+  background: #eeeeee;
+}
+.controlBtns button {
+  position: absolute;
+}
+
+.controlBtns button:first-child {
+  left: 0;
+}
+.controlBtns button:last-child {
+  right: 0;
+}
+
+.greenRoom {
+  background: #a5d6a7;
+}
+
+.redRoom {
+  background: #ef9a9a ;
+}
+
+.blueRoom {
+  background: #90caf9;
+}
+
+.purpleRoom {
+  background: #ce93d8;
 }
