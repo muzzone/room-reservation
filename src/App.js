@@ -9,12 +9,16 @@ class App extends Component {
   constructor(props) {
     super(props);
     const date = new Date();
-    const timeStamp = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 9).getTime();
+    let firstDayOfWeek = new Date();
+    firstDayOfWeek = new Date(firstDayOfWeek.setDate(firstDayOfWeek.getDate() - firstDayOfWeek.getDay()+1));
+    console.log({firstDayOfWeek: firstDayOfWeek.getDate(), currentDay:date.getDate()});
+
+    const timeStamp = new Date(firstDayOfWeek.getFullYear(), firstDayOfWeek.getMonth(), firstDayOfWeek.getDate(), 9).getTime();
 
     const reservedSlots = localStorage.getItem('reserved') || [];
 
     this.state = {
-      date: date,
+      date: firstDayOfWeek,
       timeStamp: timeStamp,
       reserved: reservedSlots
     };
@@ -64,7 +68,6 @@ class App extends Component {
       reservedSlots.push(id);
       console.log(reservedSlots);
       $(this).addClass('reserved');
-      // localStorage.setItem('reserved', reservedSlots);
       localStorage['reserved'] = JSON.stringify(reservedSlots);
       console.log(localStorage.getItem('reserved'));
     })
@@ -87,7 +90,7 @@ class App extends Component {
     console.log('next');
     this.setState({
       date: this.state.date.addDays(7)
-    });;
+    });
   }
 
   prevWeek() {
@@ -104,9 +107,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
         </header>
-        <Navigation>
-          <button onClick={this.nextWeek}>next</button>
+        <Navigation date={this.state.date}>
           <button onClick={this.prevWeek}>prev</button>
+          <button onClick={this.nextWeek}>next</button>
         </Navigation>
         <Rooms date={this.state.date}/>
       </div>

@@ -6,7 +6,12 @@ class Room extends Component {
   daysGenerator(day) {
     return (
       <li key={this.props.date.addDays(day)}>
-        <Day key={this.props.date.addDays(day)} date={this.props.date.addDays(day)} roomName={this.props.roomName} />
+        <Day
+          key={this.props.date.addDays(day)}
+          date={this.props.date.addDays(day)}
+          roomName={this.props.roomName}
+          dayNumber={day}
+        />
       </li>
     )
   }
@@ -17,7 +22,7 @@ class Room extends Component {
       days.push(this.daysGenerator(i))
     }
     return (
-      <div className="room">
+      <div className={'room ' + this.props.roomName.toLocaleLowerCase() + 'Room'}>
         <div className="roomInfo">
           {this.props.roomName} room
           <br/>
