@@ -113,8 +113,8 @@ class App extends Component {
           <h1>Rooms reservation</h1>
         </header>
         <Navigation date={this.state.date}>
-          <button onClick={this.prevWeek}>prev</button>
-          <button onClick={this.nextWeek}>next</button>
+          <button onClick={this.prevWeek}> </button>
+          <button onClick={this.nextWeek}> </button>
         </Navigation>
         <Rooms date={this.state.date}/>
       </div>

@@ -52,6 +52,7 @@ header {
 
 .room {
   margin: 5px 20px;
+  padding: 5px 0;
 }
 
 .rooms, .navContainer{
@@ -100,13 +101,22 @@ header {
 }
 .controlBtns button {
   position: absolute;
+  height: 18px;
+  width: 30px;
+  border: none;
+  background-position: center !important;
+  background-size: cover !important;
+  cursor: pointer;
 }
 
 .controlBtns button:first-child {
+  transform: rotate(180deg);
   left: 10px;
+  background: url("https://png.icons8.com/windows/1600/long-arrow-right.png");
 }
 .controlBtns button:last-child {
   right: 10px;
+  background: url("https://png.icons8.com/windows/1600/long-arrow-right.png");
 }
 
 .greenRoom {
