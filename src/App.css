@@ -23,8 +23,12 @@ header {
   display: flex;
 }
 
-.rooms li{
+.rooms li, .navContainer li{
   list-style: none;
+}
+
+.rooms {
+  color: #424242;
 }
 
 .days {
@@ -36,6 +40,8 @@ header {
   flex-wrap: wrap;
   max-width: 170px;
   padding: 0;
+  text-align: end;
+  justify-content: center;
 }
 
 .time{
@@ -45,7 +51,7 @@ header {
 }
 
 .room {
-  margin: 20px;
+  margin: 5px 20px;
 }
 
 .rooms, .navContainer{
@@ -61,7 +67,7 @@ header {
   width: 100%;
 }
 
-.redRoom .dayHeader, .blueRoom .dayHeader, .purpleRoom .dayHeader{
+.redRoom .dayHeader, .blueRoom .dayHeader, .purpleRoom .dayHeader, .greenRoom .dayHeader{
   display: none;
 }
 
@@ -86,20 +92,21 @@ header {
 }
 
 .controlBtns {
-  width: 750px;
+  width: 710px;
   text-align: center;
   position: relative;
   background: #eeeeee;
+  padding: 10px;
 }
 .controlBtns button {
   position: absolute;
 }
 
 .controlBtns button:first-child {
-  left: 0;
+  left: 10px;
 }
 .controlBtns button:last-child {
-  right: 0;
+  right: 10px;
 }
 
 .greenRoom {
@@ -116,4 +123,11 @@ header {
 
 .purpleRoom {
   background: #ce93d8;
+}
+
+.dates {
+  padding-left: 170px;
+  display: flex;
+  justify-content: space-between;
+  width: 710px;
 }
