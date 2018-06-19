@@ -10,9 +10,13 @@ class App extends Component {
     super(props);
     const date = new Date();
     const timeStamp = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 9).getTime();
+
+    const reservedSlots = localStorage.getItem('reserved') || [];
+
     this.state = {
       date: date,
-      timeStamp: timeStamp
+      timeStamp: timeStamp,
+      reserved: reservedSlots
     };
 
     this.nextWeek = this.nextWeek.bind(this);
@@ -33,35 +37,57 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    this.restartEventListener();
     console.log('componentDidUpdate');
+    this.restartClickListener();
+    this.highlightReservedSlots();
   }
 
   componentDidMount() {
     console.log('componentDidMount');
+    this.startClickListener();
+    this.highlightReservedSlots();
+  }
 
+  restartClickListener() {
+    $('.time').off('click');
+    this.startClickListener();
+  }
+
+  startClickListener() {
     const nodes = $('.time');
+    const reserved = localStorage['reserved'] || "[]";
+    const reservedSlots = JSON.parse(reserved);
+    console.log(reservedSlots);
+
     $(nodes).click( function () {
-      console.log($(this).attr('id'));
-      console.log(this);
+      const id = $(this).attr('id');
+      reservedSlots.push(id);
+      console.log(reservedSlots);
+      $(this).addClass('reserved');
+      // localStorage.setItem('reserved', reservedSlots);
+      localStorage['reserved'] = JSON.stringify(reservedSlots);
+      console.log(localStorage.getItem('reserved'));
     })
   }
 
-  restartEventListener() {
-    const nodes = $('.time');
+  highlightReservedSlots() {
+     let elements = '';
+    const reserved = localStorage['reserved'] || "{}";
+    const reservedSlots = JSON.parse(reserved);
+     $.each(reservedSlots, function (index, item) {
+       elements = elements + '#' + item + ', ';
+     });
 
-    $(nodes).off('click');
-    $(nodes).click( function () {
-      console.log($(this).attr('id'));
-      console.log(this);
-    });
+     elements = elements.substring(0, elements.length - 2);
+
+     $(elements).addClass('reserved');
   }
 
   nextWeek() {
     console.log('next');
     this.setState({
       date: this.state.date.addDays(7)
-    });
+    });;
   }
 
   prevWeek() {

@@ -43,3 +43,7 @@ header {
 .room {
   margin: 20px;
 }
+
+.reserved {
+  background: red;
+}
