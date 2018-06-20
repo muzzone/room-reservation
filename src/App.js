@@ -71,7 +71,6 @@ class App extends Component {
      });
 
      elements = elements.substring(0, elements.length - 2);
-
      $(elements).addClass('reserved');
   }
 

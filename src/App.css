@@ -29,6 +29,7 @@ header {
 
 .rooms {
   color: #424242;
+  max-width: 100%;
 }
 
 .days {
@@ -53,6 +54,7 @@ header {
 .room {
   margin: 5px 20px;
   padding: 5px 0;
+  min-width: 860px;
 }
 
 .rooms, .navContainer{
@@ -94,9 +96,12 @@ header {
 .navContainer {
   margin: 20px 0;
 }
-.navContainer > div {
+
+.roomColumnHeader, .controlBtns{
   display: inline-block;
 }
+
+
 
 .controlBtns {
   width: 690px;
@@ -129,7 +134,7 @@ header {
   background: #a5d6a7;
 }
 
-.greenRoom .time {
+.greenRoom .time{
   background: #c8e6c9;
 }
 
@@ -183,4 +188,73 @@ header {
 
 .roomName {
   font-weight: 700;
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.room {
+  display: block;
+}
+
+.room > div {
+  display: inline-block;
+}
+
+.days {
+  display: inline-block;
+  width: 700px;
+}
+
+.days > li {
+  display: inline-block;
+}
+
+.day {
+  max-width: 120px;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.time {
+  display: inline-block;
+}
+
+.roomInfo {
+  /*margin-top: -18px;*/
+  position: relative;
+  top: -30px;
+}
+
+.navContainer {
+  width: auto;
+  max-width: 900px;
+}
+
+@media screen and (max-width: 900px){
+  .roomColumnHeader {
+    display: none;
+  }
+  .dates {
+    display: none;
+  }
+  .rooms {
+    overflow-x: auto;
+  }
+  .controlBtns {
+    width: 100%;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+  }
+  .room {
+    margin: 5px 0;
+  }
+  .redRoom .dayHeader, .blueRoom .dayHeader, .purpleRoom .dayHeader, .greenRoom .dayHeader{
+    display: block;
+  }
+  .dayHeader{
+    padding:5px 0;
+    text-align: center;
+  }
 }
