@@ -59,9 +59,11 @@ header {
   width: 900px;
 }
 
-.reserved {
+.time {
   background: rgba(224, 224, 224, 0.48);
 }
+
+
 
 .dayHeader {
   padding-left: 10px;
@@ -81,8 +83,12 @@ header {
 }
 
 .roomColumnHeader{
-  width: 130px;
+  width: 150px;
   padding-left: 20px;
+  position: relative;
+  left: 10px;
+  font-weight: 700;
+  color: #424242;
 }
 
 .navContainer {
@@ -93,7 +99,7 @@ header {
 }
 
 .controlBtns {
-  width: 710px;
+  width: 690px;
   text-align: center;
   position: relative;
   background: #eeeeee;
@@ -123,16 +129,49 @@ header {
   background: #a5d6a7;
 }
 
+.greenRoom .time {
+  background: #c8e6c9;
+}
+
 .redRoom {
   background: #ef9a9a ;
+}
+
+.redRoom .time {
+  background: #ffcdd2;
 }
 
 .blueRoom {
   background: #90caf9;
 }
 
+.blueRoom .time {
+  background: #bbdefb;
+}
+
 .purpleRoom {
   background: #ce93d8;
+}
+
+.purpleRoom .time {
+  background: #e1bee7;
+}
+
+.greenRoom .reserved {
+  background: #4caf50;
+}
+
+.redRoom .reserved {
+  background: #f44336;
+}
+
+.blueRoom .reserved {
+  background: #2196f3;
+}
+
+.purpleRoom .reserved {
+  background: #ba68c8;
+  /*color: #fafafa;*/
 }
 
 .dates {
@@ -140,4 +179,8 @@ header {
   display: flex;
   justify-content: space-between;
   width: 710px;
+}
+
+.roomName {
+  font-weight: 700;
 }

@@ -18,18 +18,18 @@ class Day extends Component {
     return id;
   }
 
-  getDayName(numberOfDay) {
-    const weekday = new Array(7);
-    weekday[0] =  "Sunday";
-    weekday[1] = "Monday";
-    weekday[2] = "Tuesday";
-    weekday[3] = "Wednesday";
-    weekday[4] = "Thursday";
-    weekday[5] = "Friday";
-    weekday[6] = "Saturday";
-
-    return(weekday[numberOfDay]);
-  }
+  // getDayName(numberOfDay) {
+  //   const weekday = new Array(7);
+  //   weekday[0] =  "Sunday";
+  //   weekday[1] = "Monday";
+  //   weekday[2] = "Tuesday";
+  //   weekday[3] = "Wednesday";
+  //   weekday[4] = "Thursday";
+  //   weekday[5] = "Friday";
+  //   weekday[6] = "Saturday";
+  //
+  //   return(weekday[numberOfDay]);
+  // }
 
   render() {
     const items = [];
@@ -39,7 +39,7 @@ class Day extends Component {
     return (
       <ul className="day">
 
-        <li className='dayHeader'>{this.state.date.getDate()} {this.getDayName(this.state.date.getDay())}</li>
+        {/*<li className='dayHeader'>{this.state.date.getDate()} {this.getDayName(this.state.date.getDay())}</li>*/}
         {items.map((item) => item)}
       </ul>
     )
