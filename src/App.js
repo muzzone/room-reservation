@@ -4,6 +4,7 @@ import './components/room'
 import Rooms from "./components/rooms";
 import Navigation from "./components/navigation";
 import $ from 'jquery';
+import Popover from './components/popover'
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +13,11 @@ class App extends Component {
     firstDayOfWeek = new Date(firstDayOfWeek.setDate(firstDayOfWeek.getDate() - firstDayOfWeek.getDay()+1));
 
     this.state = {
-      date: firstDayOfWeek
+      date: firstDayOfWeek,
+      popoverCoords: {
+        top: 50,
+        left: 100
+      }
     };
 
     this.nextWeek = this.nextWeek.bind(this);
@@ -97,6 +102,7 @@ class App extends Component {
           <button onClick={this.nextWeek}> </button>
         </Navigation>
         <Rooms date={this.state.date}/>
+        <Popover coord={this.state.popoverCoords} />
       </div>
     );
   }
