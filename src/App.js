@@ -5,6 +5,7 @@ import Rooms from "./components/rooms";
 import Navigation from "./components/navigation";
 import $ from 'jquery';
 import Popover from './components/popover'
+import { connect } from "react-redux";
 
 class App extends Component {
   constructor(props) {
@@ -87,4 +88,8 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps (state) {
+  return { state }
+}
+
+export default connect(mapStateToProps)(App);

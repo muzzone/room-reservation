@@ -27,9 +27,8 @@ class Time extends Component {
     const id = this.props.timeId;
 
     reservedSlots.push(id);
-    e.target.classList.add('reserved');
     localStorage['reserved'] = JSON.stringify(reservedSlots);
-
+    e.target.classList.add('reserved');
 
   }
 
