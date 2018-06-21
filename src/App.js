@@ -38,32 +38,11 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    this.restartClickListener();
     this.highlightReservedSlots();
   }
 
   componentDidMount() {
-    this.startClickListener();
     this.highlightReservedSlots();
-  }
-
-  restartClickListener() {
-    $('.time').off('click');
-    this.startClickListener();
-  }
-
-  startClickListener() {
-    const nodes = $('.time');
-    const reserved = localStorage['reserved'] || "[]";
-    const reservedSlots = JSON.parse(reserved);
-
-    $(nodes).click( function () {
-      if ($(this).hasClass('reserved')) {return}
-      const id = $(this).attr('id');
-      reservedSlots.push(id);
-      $(this).addClass('reserved');
-      localStorage['reserved'] = JSON.stringify(reservedSlots);
-    })
   }
 
   highlightReservedSlots() {
