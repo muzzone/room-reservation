@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-
+import { connect } from "react-redux";
+import {showPopover} from '../redux/actions'
+import $ from 'jquery';
 
 
 class Time extends Component {
@@ -10,25 +12,19 @@ class Time extends Component {
   }
 
   handleClick(e) {
-    if (e.target.classList.value.indexOf('reserved') !== -1) {
+    if ($(e.target).hasClass('reserved')) {
       return;
     }
     const reserved = localStorage['reserved'] || "[]";
     const reservedSlots = JSON.parse(reserved);
 
-    const info = {
-      id: this.props.timeId,
-      eventTarge: e.target,
-      classList: e.target.classList,
-      reserved: e.target.classList.value.indexOf('reserved') === -1 ? false : true
-    };
-    console.log(info);
-
     const id = this.props.timeId;
+    const offset = $(e.target).offset();
 
     reservedSlots.push(id);
     localStorage['reserved'] = JSON.stringify(reservedSlots);
-    e.target.classList.add('reserved');
+    $(e.target).addClass('reserved');
+    this.props.dispatch(showPopover({top:offset.top, left:offset.left}))
 
   }
 
@@ -41,4 +37,8 @@ class Time extends Component {
   }
 }
 
-export default Time
+function mapStateToProps (state) {
+  return { state }
+}
+
+export default connect(mapStateToProps)(Time);

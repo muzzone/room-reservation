@@ -243,7 +243,8 @@ header {
 
 .popover__wrapper {
   position: absolute;
-  margin-top: 1.5rem;
+  margin-left: 6px;
+  margin-top: -84px;
   display: inline-block;
 }
 .popover__content {
@@ -255,14 +256,15 @@ header {
   background-color: #fafafa;
   padding: 1.5rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  width: auto;
+  width: 300px;
 }
 .popover__content:before {
   position: absolute;
   z-index: -1;
   content: '';
   right: calc(50% - 10px);
-  top: -8px;
+  bottom: -8px;
+  transform: rotate(180deg);
   border-style: solid;
   border-width: 0 10px 10px 10px;
   border-color: transparent transparent #fafafa transparent;
@@ -316,4 +318,8 @@ header {
     padding:5px 0;
     text-align: center;
   }
+}
+
+.hidden {
+  display: none;
 }

@@ -18,7 +18,8 @@ class App extends Component {
       popoverCoords: {
         top: 50,
         left: 100
-      }
+      },
+      popoverVisible: 'hidden'
     };
 
     this.nextWeek = this.nextWeek.bind(this);
@@ -40,10 +41,12 @@ class App extends Component {
 
   componentDidUpdate() {
     this.highlightReservedSlots();
+    console.log(this.props);
   }
 
   componentDidMount() {
     this.highlightReservedSlots();
+    console.log(this.props);
   }
 
   highlightReservedSlots() {
@@ -82,7 +85,7 @@ class App extends Component {
           <button onClick={this.nextWeek}> </button>
         </Navigation>
         <Rooms date={this.state.date}/>
-        <Popover coord={this.state.popoverCoords} />
+        <Popover coords={this.props.state.popover.coords} visible={this.props.state.popover.visible} />
       </div>
     );
   }
