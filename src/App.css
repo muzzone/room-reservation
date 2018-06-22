@@ -257,6 +257,8 @@ header {
   padding: 1.5rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   width: 300px;
+  height: 21px;
+  max-height: 21px;
 }
 .popover__content:before {
   position: absolute;
@@ -282,7 +284,6 @@ header {
   z-index: 10;
   opacity: 1;
   visibility: visible;
-  transform: translate(0,-20px);
   transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
    position: absolute;
 }

@@ -1,10 +1,12 @@
 
-export const showPopover = (coords) => {
+export const showPopover = (coords, id, reserved) => {
   return {
     type: 'SHOW_POPOVER',
     payload: {
       coords: coords,
-      visible: 'show'
+      visible: 'show',
+      reserved: reserved,
+      id: id
     }
   }
 };

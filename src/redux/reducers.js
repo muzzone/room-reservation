@@ -3,7 +3,9 @@ const initialState = {
     top: 0,
     left: 0
   },
-  visible: 'hidden'
+  visible: 'hidden',
+  reserved: false,
+  id: ''
 };
 
 export const popover = (state = initialState, action) => {

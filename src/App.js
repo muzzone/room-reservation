@@ -41,21 +41,20 @@ class App extends Component {
 
   componentDidUpdate() {
     this.highlightReservedSlots();
-    console.log(this.props);
+    // console.log(this.props);
   }
 
   componentDidMount() {
     this.highlightReservedSlots();
-    console.log(this.props);
+    // console.log(this.props);
   }
 
   highlightReservedSlots() {
     let elements = '';
-    const reserved = localStorage['reserved'] || "{}";
+    const reserved = localStorage['reserved'] || "[]";
     const reservedSlots = JSON.parse(reserved);
-
      $.each(reservedSlots, function (index, item) {
-       elements = elements + '#' + item + ', ';
+       elements = elements + '#' + item.id + ', ';
      });
 
      elements = elements.substring(0, elements.length - 2);
@@ -85,7 +84,11 @@ class App extends Component {
           <button onClick={this.nextWeek}> </button>
         </Navigation>
         <Rooms date={this.state.date}/>
-        <Popover coords={this.props.state.popover.coords} visible={this.props.state.popover.visible} />
+        <Popover
+          coords={this.props.state.popover.coords}
+          visible={this.props.state.popover.visible}
+          elementId={this.props.state.popover.id}
+        />
       </div>
     );
   }
