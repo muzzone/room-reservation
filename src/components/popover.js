@@ -49,7 +49,6 @@ class Popover extends Component {
   }
 
   render() {
-    // console.log(this.props);
     return (
       <div style={this.props.coords} className={"popover__wrapper " + this.props.visible}>
         {this.props.state.popover.reserved? (
@@ -61,7 +60,7 @@ class Popover extends Component {
           (
             <div className="push popover__content">
               <div className="close" onClick={this.closePopover}> </div>
-              <input onChange={this.handleChange} style={{width: 220,paddingLeft: 5}} value={this.state.value} type="text" placeholder="note?"  />
+              <input className="noteInput" onChange={this.handleChange} value={this.state.value} type="text" placeholder="note?"  />
               <button onClick={this.reserve} className="reserveBtn">Ok</button>
             </div>
           )

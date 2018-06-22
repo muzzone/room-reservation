@@ -268,8 +268,6 @@ header {
   border-style: solid;
   border-width: 0 10px 10px 10px;
   border-color: transparent transparent #fafafa transparent;
-  transition-duration: 0.3s;
-  transition-property: transform;
 }
 /*.popover__wrapper:hover .popover__content {*/
   /*z-index: 10;*/
@@ -282,7 +280,6 @@ header {
   z-index: 10;
   opacity: 1;
   visibility: visible;
-  transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
    position: absolute;
 }
 .popover__message {
@@ -309,6 +306,11 @@ header {
 
 .popover__content .note {
   overflow: hidden;
+}
+
+.noteInput {
+  width: 220px;
+  padding-left: 5px
 }
 
 @media screen and (max-width: 900px){
@@ -339,8 +341,26 @@ header {
     padding:5px 0;
     text-align: center;
   }
+  .popover__wrapper{
+    position: fixed;
+    top: 100% !important;
+    left: 144px !important;
+    width: calc(100% - 80px);
+  }
+  .popover__content{
+    width: 100%;
+  }
+
+  .noteInput {
+    width: calc(100% - 40px);
+  }
 }
 
 .hidden {
   display: none;
 }
+
+/*position: fixed;*/
+/*top: 28px;*/
+/*left: 0px;*/
+/*width: 186px;*/

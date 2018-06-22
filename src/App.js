@@ -37,7 +37,6 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    // console.log(this.props);
     this.highlightReservedSlots();
   }
 
@@ -45,14 +44,12 @@ class App extends Component {
     const reserved = localStorage['reserved'] || "[]";
     this.props.dispatch(loadReservedSlots(JSON.parse(reserved)));
     this.highlightReservedSlots();
-    // console.log(this.props);
   }
 
   highlightReservedSlots() {
     let elements = '';
 
     const reservedSlots = this.props.state.reservedSlots;
-    // console.log(reservedSlots);
      $.each(reservedSlots, function (index, item) {
        elements = elements + '#' + item.id + ', ';
      });
