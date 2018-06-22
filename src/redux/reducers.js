@@ -27,7 +27,8 @@ export const reservedSlots = (state = initialState.reservedSlots, action) => {
     case 'LOAD_DATA' :
       return {...state, ...action.payload};
     case 'RESERVE_SLOT' :
-      return {...state.reservedSlots, ...action.payload};
+      console.log({...state, ...action.payload});
+      return {...state, ...action.payload};
     default :
       return state;
   }

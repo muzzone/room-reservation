@@ -27,9 +27,9 @@ export const loadReservedSlots = (reservedSlots) => {
   }
 };
 
-export const reserveSlot= (id, note) => {
+export const reserveSlot = (id, note) => {
   return {
     type: 'RESERVE_SLOT',
-    payload: { id, note }
+    payload: [{ id, note }]
   }
 };

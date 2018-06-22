@@ -52,7 +52,7 @@ class App extends Component {
     let elements = '';
 
     const reservedSlots = this.props.state.reservedSlots;
-    console.log(reservedSlots);
+    // console.log(reservedSlots);
      $.each(reservedSlots, function (index, item) {
        elements = elements + '#' + item.id + ', ';
      });

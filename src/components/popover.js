@@ -29,6 +29,7 @@ class Popover extends Component {
     $('#'+this.props.elementId).addClass('reserved');
 
     this.props.dispatch(hidePopover());
+    this.props.dispatch(reserveSlot(this.props.elementId, this.state.value));
     this.setState({value: ''});
   }
 
@@ -48,7 +49,7 @@ class Popover extends Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div style={this.props.coords} className={"popover__wrapper " + this.props.visible}>
         {this.props.state.popover.reserved? (
