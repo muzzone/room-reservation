@@ -1,8 +1,9 @@
-import {popover} from './reducers';
+import {popover, reservedSlots} from './reducers';
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
-  popover
+  popover,
+  reservedSlots
 });
 
 export default rootReducer;

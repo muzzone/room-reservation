@@ -189,8 +189,6 @@ header {
   font-weight: 700;
 }
 
-
-
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 .room {
@@ -254,9 +252,9 @@ header {
   left: -150px;
   transform: translate(0,10px);
   background-color: #fafafa;
-  padding: 1.5rem;
+  padding: 24px 40px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  width: 300px;
+  width: 268px;
   height: 21px;
   max-height: 21px;
 }
@@ -289,6 +287,28 @@ header {
 }
 .popover__message {
   text-align: center;
+}
+
+.popover__content .close {
+  position: absolute;
+  right: 7px;
+  top: 5px;
+  background: url("https://cdn3.iconfinder.com/data/icons/status/100/close_2-512.png");
+  height: 13px;
+  width: 13px;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.popover__content .reserveBtn {
+  background: #4285f4;
+  border: none;
+  color: #fff;
+  height: 100%;
+}
+
+.popover__content .note {
+  overflow: hidden;
 }
 
 @media screen and (max-width: 900px){

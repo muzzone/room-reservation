@@ -14,10 +14,8 @@ class Time extends Component {
   handleClick(e) {
 
     const id = this.props.timeId;
-    const offset = $(e.target).offset();
+    const offset = $(e.target).position();
     const reserved = $(e.target).hasClass('reserved');
-
-    $(e.target).addClass('reserved');
 
     this.props.dispatch(showPopover(
       {

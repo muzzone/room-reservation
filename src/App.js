@@ -6,6 +6,7 @@ import Navigation from "./components/navigation";
 import $ from 'jquery';
 import Popover from './components/popover'
 import { connect } from "react-redux";
+import { loadReservedSlots, hidePopover } from './redux/actions'
 
 class App extends Component {
   constructor(props) {
@@ -15,11 +16,7 @@ class App extends Component {
 
     this.state = {
       date: firstDayOfWeek,
-      popoverCoords: {
-        top: 50,
-        left: 100
-      },
-      popoverVisible: 'hidden'
+      popoverVisible: 'hidden',
     };
 
     this.nextWeek = this.nextWeek.bind(this);
@@ -40,19 +37,22 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    this.highlightReservedSlots();
     // console.log(this.props);
+    this.highlightReservedSlots();
   }
 
   componentDidMount() {
+    const reserved = localStorage['reserved'] || "[]";
+    this.props.dispatch(loadReservedSlots(JSON.parse(reserved)));
     this.highlightReservedSlots();
     // console.log(this.props);
   }
 
   highlightReservedSlots() {
     let elements = '';
-    const reserved = localStorage['reserved'] || "[]";
-    const reservedSlots = JSON.parse(reserved);
+
+    const reservedSlots = this.props.state.reservedSlots;
+    console.log(reservedSlots);
      $.each(reservedSlots, function (index, item) {
        elements = elements + '#' + item.id + ', ';
      });
@@ -62,12 +62,14 @@ class App extends Component {
   }
 
   nextWeek() {
+    this.props.dispatch(hidePopover());
     this.setState({
       date: this.state.date.addDays(7)
     });
   }
 
   prevWeek() {
+    this.props.dispatch(hidePopover());
     this.setState({
       date: this.state.date.deductDays(7)
     });

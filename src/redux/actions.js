@@ -19,3 +19,17 @@ export const hidePopover = () => {
     }
   }
 };
+
+export const loadReservedSlots = (reservedSlots) => {
+  return {
+    type: 'LOAD_DATA',
+    payload: reservedSlots
+  }
+};
+
+export const reserveSlot= (id, note) => {
+  return {
+    type: 'RESERVE_SLOT',
+    payload: { id, note }
+  }
+};
