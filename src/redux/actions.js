@@ -33,3 +33,10 @@ export const reserveSlot = (id, note) => {
     payload: [{ id, note }]
   }
 };
+
+export const cancelReservation = (reservedSlots) => {
+  return {
+    type: 'CANCEL_RESERVATION',
+    payload: reservedSlots
+  }
+};

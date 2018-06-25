@@ -28,6 +28,8 @@ export const reservedSlots = (state = initialState.reservedSlots, action) => {
       return [...state, ...action.payload];
     case 'RESERVE_SLOT' :
       return [...state, ...action.payload];
+    case 'CANCEL_RESERVATION' :
+      return [...action.payload];
     default :
       return state;
   }

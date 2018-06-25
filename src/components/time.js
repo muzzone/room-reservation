@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import {showPopover} from '../redux/actions';
+import {showPopover, cancelReservation} from '../redux/actions';
 import $ from 'jquery';
 
 
@@ -32,9 +32,18 @@ class Time extends Component {
   }
 
   cancelReservation(e) {
+
     const id = this.props.timeId;
-    const reserved = $(e.target).hasClass('reserved');
-    console.log(id);
+    const reserved = $(e.target).parent().hasClass('reserved');
+
+    if (reserved) {
+      let reservedSlots = this.props.state.reservedSlots;
+      reservedSlots = reservedSlots.filter(slot => slot.id !== id);
+
+      localStorage['reserved'] = JSON.stringify(reservedSlots);
+      this.props.dispatch(cancelReservation(reservedSlots));
+      $(e.target).parent().removeClass('reserved');
+    }
   }
 
   render() {
