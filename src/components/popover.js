@@ -40,7 +40,7 @@ class Popover extends Component {
     const note = reservedSlots.find(function (element) {
       return element.id === id
     });
-    return note.note;
+    return note? note.note: null;
   }
 
   render() {

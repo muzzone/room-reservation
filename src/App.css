@@ -313,6 +313,33 @@ header {
   padding-left: 5px
 }
 
+.day {
+  max-width: 129px;
+  margin: 0 5px;
+}
+
+.time {
+  width: 56px;
+  padding: 1px 0 1px 6px;
+}
+
+.time span {
+  cursor: default;
+}
+
+.time span:after {
+  content: " ";
+  padding-right: 6px;
+  display: inline-block;
+  min-width: 5.328px;
+}
+
+.reserved span:after {
+  cursor: pointer;
+  content: "-";
+  padding-right: 6px;
+}
+
 @media screen and (max-width: 900px){
   .roomColumnHeader {
     display: none;
@@ -358,23 +385,4 @@ header {
 
 .hidden {
   display: none;
-}
-
-.day {
-  max-width: 129px;
-  margin: 0 5px;
-}
-
-.time {
-  width: 56px;
-  padding: 1px 0 1px 6px;
-}
-.time span:after {
-  content: "+";
-  padding-right: 3px;
-}
-
-.reserved span:after {
-  content: "-";
-  padding-right: 6px;
 }

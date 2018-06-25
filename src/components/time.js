@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import {showPopover, cancelReservation} from '../redux/actions';
+import {showPopover, hidePopover, cancelReservation} from '../redux/actions';
 import $ from 'jquery';
 
 
@@ -42,7 +42,9 @@ class Time extends Component {
 
       localStorage['reserved'] = JSON.stringify(reservedSlots);
       this.props.dispatch(cancelReservation(reservedSlots));
+      this.props.dispatch(hidePopover());
       $(e.target).parent().removeClass('reserved');
+
     }
   }
 
