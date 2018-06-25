@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { hidePopover, reserveSlot } from '../redux/actions'
 import { connect } from "react-redux";
-import $ from 'jquery';
 
 class Popover extends Component {
   constructor(props) {
@@ -18,15 +17,12 @@ class Popover extends Component {
   }
 
   reserve() {
-    const reserved = localStorage['reserved'] || "[]"; ////TODO брать из сотсояния
-    const reservedSlots = JSON.parse(reserved);
+    const reservedSlots = this.props.state.reservedSlots;
     reservedSlots.push({
       id: this.props.elementId,
       note: this.state.value
     });
     localStorage['reserved'] = JSON.stringify(reservedSlots);
-
-    $('#'+this.props.elementId).addClass('reserved');
 
     this.props.dispatch(hidePopover());
     this.props.dispatch(reserveSlot(this.props.elementId, this.state.value));
@@ -40,8 +36,7 @@ class Popover extends Component {
   }
 
   getNote(id) {
-    const reserved = localStorage['reserved'] || "[]";  ////TODO брать из сотсояния
-    const reservedSlots = JSON.parse(reserved);
+    const reservedSlots = this.props.state.reservedSlots;
     const note = reservedSlots.find(function (element) {
       return element.id === id
     });
@@ -60,7 +55,11 @@ class Popover extends Component {
           (
             <div className="push popover__content">
               <div className="close" onClick={this.closePopover}> </div>
-              <input className="noteInput" onChange={this.handleChange} value={this.state.value} type="text" placeholder="note?"  />
+              <input
+                className="noteInput"
+                onChange={this.handleChange}
+                value={this.state.value}
+                type="text" placeholder="note?"  />
               <button onClick={this.reserve} className="reserveBtn">Ok</button>
             </div>
           )

@@ -12,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     let firstDayOfWeek = new Date();
-    firstDayOfWeek = new Date(firstDayOfWeek.setDate(firstDayOfWeek.getDate() - firstDayOfWeek.getDay()+1));
+    firstDayOfWeek = new Date(firstDayOfWeek.setDate(firstDayOfWeek.getDate() - firstDayOfWeek.getDay() + 1));
 
     this.state = {
       date: firstDayOfWeek,
@@ -36,14 +36,15 @@ class App extends Component {
 
   }
 
-  componentDidUpdate() {
-    this.highlightReservedSlots();
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.state.reservedSlots.length !== this.props.state.reservedSlots.length || prevState.date !== this.state.date) {
+      this.highlightReservedSlots();
+    }
   }
 
   componentDidMount() {
     const reserved = localStorage['reserved'] || "[]";
     this.props.dispatch(loadReservedSlots(JSON.parse(reserved)));
-    this.highlightReservedSlots();
   }
 
   highlightReservedSlots() {

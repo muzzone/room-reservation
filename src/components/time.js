@@ -9,9 +9,13 @@ class Time extends Component {
     super(props);
 
     this.handleClick = this.handleClick.bind(this);
+    this.cancelReservation = this.cancelReservation.bind(this);
   }
 
   handleClick(e) {
+    if (e.target.tagName === 'SPAN') {
+      return;
+    }
 
     const id = this.props.timeId;
     const offset = $(e.target).position();
@@ -27,10 +31,17 @@ class Time extends Component {
     ));
   }
 
+  cancelReservation(e) {
+    const id = this.props.timeId;
+    const reserved = $(e.target).hasClass('reserved');
+    console.log(id);
+  }
+
   render() {
     return (
       <li className="time" id={this.props.timeId} onClick={(e) => this.handleClick(e)}>
         {this.props.time}
+        <span onClick={(e) => this.cancelReservation(e)}> </span>
       </li>
     )
   }

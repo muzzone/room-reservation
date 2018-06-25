@@ -25,9 +25,9 @@ export const popover = (state = initialState.popover, action) => {
 export const reservedSlots = (state = initialState.reservedSlots, action) => {
   switch (action.type) {
     case 'LOAD_DATA' :
-      return {...state, ...action.payload};
+      return [...state, ...action.payload];
     case 'RESERVE_SLOT' :
-      return {...state, ...action.payload};
+      return [...state, ...action.payload];
     default :
       return state;
   }
